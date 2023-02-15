@@ -1,0 +1,30 @@
+<main>
+    <section>
+    <h1><%= @band.name %></h1>
+    <table>
+        <tr>
+            <th>Album name</th>
+            <th>Year</th>
+        </tr>
+        <% Album.all.each do |album| %>
+            <% if album.band_id == @band.id %>
+            <tr>
+                <td>
+                <a href="/albums/<%=album.id %>">
+                    <h2><%= album.title %></h2>
+                </a>
+                </td>
+                <td>
+                <h2><%= album.year %></h2>
+                </td>
+            </tr>
+            <% end %>
+        <%end%>
+    </table>
+
+    <br>
+    <% if current_user.admin? %>
+    <%= link_to "Add an album", new_band_album_path(@band), class: "btton"   %>
+    <%end%>
+    </section>
+</main>

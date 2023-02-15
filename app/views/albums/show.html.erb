@@ -1,0 +1,21 @@
+<main>
+    <form>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h1><a href="/bands/<%= @band.id %>"><%= @band.name %></a></h1>
+        <h2><%= @album.title %><h2>
+        <% if current_user.admin? %>
+        <%= link_to "Editar", edit_album_path(@album.id), class: "btton"%>
+        <%= link_to "Eliminar", album_path(@album.id), data: {"turbo-method": :delete} , class: "btton" %>
+        <%end%>
+        <ol>
+            <% @album.tracks.order(:ord).each do |track| %>
+                <li>
+                    <a href="/tracks/<%= track.id %>"><%= track.title %></a>
+                </li>
+            <% end %>
+        </ol>
+        <% if current_user.admin? %>
+        <%= link_to "Add a track", new_album_track_path(@album), class: "btton"%>
+        <%end%>
+    </form>
+</main>

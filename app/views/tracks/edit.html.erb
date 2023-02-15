@@ -1,0 +1,18 @@
+<main>
+    <form action="/tracks/<%= @track.id %>" method="POST">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="name">Track name:</label>
+        <input type="text" id="title" name="track[title]" value="<%= @track.title %>">
+        <label for="ord">Ord:</label>
+        <input type="text" id="ord" name="track[ord]" value="<%= @track.ord %>">
+        <label for="lyrics">Lyrics:</label>
+        <textarea type="text" id="lyrics" name="track[lyrics]"><%= @track.lyrics %></textarea>
+        <input type="radio" class="radop" name="track[regular]" value="<%=true%>" <%="checked" if @track.regular == true%>>
+        <label for="live">Regular</label> 
+        <input type="radio" class="radop" name="track[regular]" value="<%=false%>" <%= "checked" if @track.regular == false%>>
+        <label for="live">Bonus</label>
+        <br>
+        <button type="submit" value="Update Band">Edit Track</button>
+    </form>
+</main>

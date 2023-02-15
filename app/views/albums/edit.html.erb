@@ -1,0 +1,16 @@
+<main>
+    <form action="/albums/<%= @album.id %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="name">Album name:</label>
+        <input type="text" id="name" name="album[title]" value="<%= @album.title %>">
+        <label for="year">year:</label>
+        <input type="text" id="year" name="album[year]" value="<%= @album.year %>">
+        <input type="radio" class="radop" name="album[live]" value="<%=true%>" <%="checked" if @album.live == true%>>
+        <label for="live">Live</label> 
+        <input type="radio" class="radop" name="album[live]" value="<%=false%>" <%= "checked" if @album.live == false%>>
+        <label for="live">Studio</label>
+        <br>
+        <button type="submit" value="Update Band">Edit Album</button>
+    </form>
+</main>

@@ -1,0 +1,21 @@
+<%= auth_token %>
+<input type="hidden" name="note[track_id]" value="<%= @track.id %>">
+<textarea name="note[notes]"></textarea>
+<input type="submit" class="btton" value="Create Note">
+
+<%# Check if there is a comment for this track on database: %>
+<% if @track.notes.any? %>
+    <h2>Notes</h2>
+        <% @track.notes.each do |note| %>
+            <p>
+                <%= note.notes %>
+                <p>Authored by:<%= note.user.email %></p>
+                <% if note.user_id == current_user.id || current_user.admin? %>
+                    <%= link_to "Delete", note_path(note.id), data: {"turbo-method": :delete} , class: "btton" %>
+                <% end %>
+                <br>
+                <br>
+                <hr>
+            </p>
+        <% end %>
+<% end %>

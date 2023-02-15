@@ -1,0 +1,32 @@
+<main>
+    <section>
+        <h1>Bands</h1>
+        <table>
+            <tr>
+                
+            </tr>
+            
+                <% @bands.each do |band| %>
+                <tr>
+                    <td>
+                        <h2><a href="/bands/<%= band.id %>"><%= band.name %></a></h2>
+                    </td>
+                    <% if current_user.admin? %>
+                    <td>
+                        <%= link_to "Edit", edit_band_path(band), class:"btton"%>
+                    </td>
+                    <td>
+                        <%= link_to "Delete", band_path(band), data: {"turbo-method": :delete} , class:"btton" %>
+                    </tr>
+                    <%end%>
+                <% end %>
+            
+        </table>
+        <br>
+        <br>
+        <% if current_user.admin? %>
+        <%= link_to "Add a band", new_band_path(@band), class:"btton"%>
+        <%end%>
+    </section>
+</main>
+

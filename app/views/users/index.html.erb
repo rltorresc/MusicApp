@@ -1,0 +1,29 @@
+<main>
+    <h1>Users</h1>
+    <section>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Admin</th>
+        </tr>
+        <% @users.each do |user| %>
+            <tr>
+                <td>
+                    <h2><%= user.email %></h2>
+                </td>
+                <td>
+                    <h2><%= user.admin %></h2>
+                </td>
+                <td>
+                    <%if user.admin == false %>
+                    <%= link_to "Make admin", make_admin_user_path(user), data: {"turbo-method": :patch} , class:"btton" %>
+                    <%end%>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    </section>
+</main>

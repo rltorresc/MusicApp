@@ -1,0 +1,20 @@
+<main>
+    <form>
+        <%= auth_token %>
+        <h1><a href="/albums/<%= @album.id %>"><%= @album.title %></a></h1>
+        <h2><%= @track.title %><h2>
+        <p><%= ugly_lyrics(@track.lyrics)%><p>
+        <% if current_user.admin? %>
+        <%= link_to "Editar", edit_track_path(@track.id), class: "btton"%>
+        <%= link_to "Eliminar", track_path(@track.id), data: {"turbo-method": :delete} , class: "btton" %>
+        <%end%>
+    </form>
+    
+    
+</main>
+<section>
+    <form action="/notes" method="POST">
+        <h2>New Note</h2>
+        <%=render 'notes/note' %>
+    </form>
+</section>

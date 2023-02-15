@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+      <nav>
+        <h1>
+          <%= link_to 'Home', href="/bands" %>
+        </h1>
+        <% if current_user.nil? %>
+          <a href="/sessions/new">Login</a>
+          <a href="/users/new">Sign Up</a>
+        <% else %>
+          <% if current_user.admin? %>
+          <%= link_to 'Users', href="/users"%>
+          <%end%>
+          <a href=""><%= current_user.email %></a>
+          <%= link_to 'Sign Out', href="/sessions/destroy", data: {"turbo-method": :delete} %>
+        <%end%>
+      </nav>
+      <% if flash[:alert] %>
+        <h2><%= flash[:alert] %></h2>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>

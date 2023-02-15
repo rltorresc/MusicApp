@@ -1,0 +1,11 @@
+Welcome to example.com, <%= @user.email %>
+===============================================
+
+You have successfully signed up to example.com,
+your username is: <%= @user.email %>.
+
+Please click the link below to activate your account now. <a href="http://localhost:3000/users/activated?activation_token=<%= @user.activation_token %>">Click here</a>
+
+To login to the site, just follow this link: <%= @url %>.
+
+Thanks for joining and have a great day!

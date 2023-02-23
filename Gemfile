@@ -70,4 +70,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "factory_bot_rails", :require => false
+  gem "faker"
+  gem 'rails-controller-testing'
 end

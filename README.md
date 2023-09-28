@@ -1,24 +1,15 @@
-# README
+#MusicApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+This is a music app that allows users to add songs, artists, and genres to a database. Users can also view all lyrics, artists, and genres in the database. Users can also view all songs by a specific artist or genre. 
 
-Things you may want to cover:
+The uesrs can comment on songs and view all comments on a specific song.
 
-* Ruby version
+Admin users can delete any cooment from the database and make any user an admin user.
 
-* System dependencies
+## Installation
+To install this app, fork and clone this repository. Then, run `bundle install` to install all gem dependencies.
 
-* Configuration
+## Version
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app uses Ruby version 3.1.2 and Rails version 7.0.4
